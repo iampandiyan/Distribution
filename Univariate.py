@@ -86,3 +86,11 @@ class Univariate():
         prob=sum(probabilities)
         print("The Area between range ({},{}) is {}".format(startRange,endRange,sum(probabilities)))
         return prob
+        
+    def stdNormalDistributionGraph(dataset):
+        import seaborn as sns
+        mean=dataset.mean()
+        std=dataset.std()
+        values=[i for i in dataset]
+        z_score=[((j-mean)/std) for j in values]
+        sns.distplot(z_score,kde=True)
